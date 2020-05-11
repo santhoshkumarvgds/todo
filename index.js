@@ -82,7 +82,19 @@ class Todos extends React.Component {
     );
   }
 }
-
+function Glogin(){
+  return(
+     <div className="googleLogin">
+  <GoogleLogin
+    clientId="278491810500-5a0t3984vlsuk04j6f30ktth3du0ag77.apps.googleusercontent.com"
+    buttonText="Sign in with google"
+    onSuccess={Success}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />
+  </div>
+  )
+} 
 class App extends React.Component {
   render() {
     return (
@@ -102,13 +114,7 @@ class App extends React.Component {
 }
 const logout=()=>{
   ReactDOM.render(
-  <GoogleLogin
-    clientId="278491810500-5a0t3984vlsuk04j6f30ktth3du0ag77.apps.googleusercontent.com"
-    buttonText="Sign in with google"
-    onSuccess={Success}
-    onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'}
-  />,
+  <Glogin />,
   document.getElementById('root')
 );
 }
@@ -119,14 +125,6 @@ const Success = () =>{
   ReactDOM.render(<App />, document.getElementById("root"));
 }
 ReactDOM.render(
-   <div className="googleLogin">
-  <GoogleLogin
-    clientId="278491810500-5a0t3984vlsuk04j6f30ktth3du0ag77.apps.googleusercontent.com"
-    buttonText="Sign in with google"
-    onSuccess={Success}
-    onFailure={responseGoogle}
-    cookiePolicy={'single_host_origin'}
-  />
-  </div>,
+  <Glogin/>,
   document.getElementById('root')
 );
