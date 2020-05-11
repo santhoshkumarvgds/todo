@@ -27,7 +27,7 @@ class TodoList extends React.Component {
                   }}
                   key={i}
                 >
-                  {""}Delete
+                  {""}complete
                   {""}
                 </button>
               </li>
