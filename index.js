@@ -16,8 +16,7 @@ class TodoList extends React.Component {
       <div className="center">
         <ul>
           {this.props.entries.map((todo, i) => {
-            if(todo != null){
-              console.log(todo);
+            
             return (
               <li>
                 {todo}
@@ -34,7 +33,7 @@ class TodoList extends React.Component {
               </li>
               
             );
-            }
+            
           })}
         </ul>
       </div>
