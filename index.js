@@ -119,12 +119,14 @@ const Success = () =>{
   ReactDOM.render(<App />, document.getElementById("root"));
 }
 ReactDOM.render(
+   <div className="googleLogin">
   <GoogleLogin
     clientId="278491810500-5a0t3984vlsuk04j6f30ktth3du0ag77.apps.googleusercontent.com"
     buttonText="Sign in with google"
     onSuccess={Success}
     onFailure={responseGoogle}
     cookiePolicy={'single_host_origin'}
-  />,
+  />
+  </div>,
   document.getElementById('root')
 );
