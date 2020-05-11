@@ -51,8 +51,11 @@ li:nth-child(even){
     border : 1px solid dodgerblue;
     background-color :  white;
 }
+li button{
+  float: right;
+}
 button{
+  margin-top: 10px;
   border: none;
   padding: 2px;
-  float: right;
 }

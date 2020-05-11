@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import GoogleLogin from 'react-google-login';
 import { GoogleLogin } from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
 import './style.css';
 
 class TodoList extends React.Component {
@@ -88,16 +89,42 @@ class App extends React.Component {
       <div className="app container">
         <div className="header">
              <h3>TODO List</h3>
+        <GoogleLogout
+      clientId="278491810500-5a0t3984vlsuk04j6f30ktth3du0ag77.apps.googleusercontent.com"
+      buttonText="Logout"
+      onLogoutSuccess={logout}
+    /> 
         </div>
         <Todos />
       </div>
     );
   }
 }
-
-const element = <App />;
-
-
-
-ReactDOM.render(element, document.getElementById("root"));
-
+const logout=()=>{
+  ReactDOM.render(
+  <GoogleLogin
+    clientId="278491810500-5a0t3984vlsuk04j6f30ktth3du0ag77.apps.googleusercontent.com"
+    buttonText="Sign in with google"
+    onSuccess={Success}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />,
+  document.getElementById('root')
+);
+}
+const responseGoogle = (response) => {
+  console.log(response);
+}
+const Success = () =>{
+  ReactDOM.render(<App />, document.getElementById("root"));
+}
+ReactDOM.render(
+  <GoogleLogin
+    clientId="278491810500-5a0t3984vlsuk04j6f30ktth3du0ag77.apps.googleusercontent.com"
+    buttonText="Sign in with google"
+    onSuccess={Success}
+    onFailure={responseGoogle}
+    cookiePolicy={'single_host_origin'}
+  />,
+  document.getElementById('root')
+);
